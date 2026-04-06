@@ -1,0 +1,71 @@
+.slider {
+  &-nav {
+    & .swiper-pagination {
+      position: relative;
+      bottom: 0 !important;
+      margin-top: 20px;
+      &-bullet {
+        width: 16px;
+        height: 16px;
+        border: 2px solid $c-gray-txt;
+        margin: 8px 0;
+        background-color: transparent;
+        opacity: 1;
+        &-active {
+          background-color: $c-gray-txt;
+          &-next, &-prev {
+            transform: scale(0.75);
+          }
+          &-next-next, &-prev-prev {
+            transform: scale(0.5);
+          }
+        }
+      }
+    }
+    &__arrows {
+      position: absolute;
+      top: 50%;
+      left: -24px;
+      z-index: 2;
+      transform: translateY(-50%);
+      width: calc(100% + 48px);
+      display: flex;
+      justify-content: space-between;
+      @include tablet768  {
+        width: calc(100% + 18px);
+        left: -9px;
+      }
+      & button {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0;
+        background-color: $c-white;
+        box-shadow: $s-shadow;
+        border-radius: 50%;
+        transition: all .3s;
+        @include hover {
+          &:hover:not(.swiper-button-disabled) {
+            background-color: $c-accent;
+            box-shadow: 2px 2px 8px 0 rgba(50, 69, 166, 0);
+            & .icon {
+              stroke: $c-white;
+            }
+          }
+        }
+        &.slider-nav--prev {
+          & .icon {
+            transform: rotate(180deg);
+          }
+        }
+        &.swiper-button-disabled {
+          opacity: .2;
+          overflow: hidden;
+          cursor: auto;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.listdown {
+  padding: 20px;
+  border-radius: 40px;
+  background-color: $c-white;
+  &__item {
+    &.active {
+      & .icon {
+        transform: rotate(0);
+      }
+      & .listdown__content {
+        max-height: 500px !important;
+        padding: 30px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        @include tablet768 {
+          max-height: 1000px !important;
+        }
+      }
+    }
+    &:last-child {
+      & .listdown__content {
+        max-height: 0;
+      }
+    }
+  }
+  &__title {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all .3s;
+    @include hover {
+      &:hover {
+        color: $c-accent;
+        border-color: $c-accent;
+        & .icon {
+          transform: rotate(0deg);
+        }
+      }
+    }
+    & .icon {
+      flex-shrink: 0;
+      transform: rotate(180deg);
+    }
+  }
+  &__content {
+    padding-left: 30px;
+    padding-right: 20px;
+    background-color: $c-black5;
+    max-height: 1px;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: all .3s cubic-bezier(0.57, 0.16, 0.63, 0.88);
+    & p:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.faq {
+  position: relative;
+  &::before {
+    @include fon($gr-blue, 800px, 500px);
+    transform: rotate(25deg);
+  }
+  &::after {
+    @include fon($gr-pink, 300px, 400px);
+    transform: rotate(200deg);
+    top: 0;
+    right: 0;
+    z-index: -2;
+    @include laptop {
+      display: none;
+    }
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 958px 1fr;
+    gap: 40px;
+    @include desktop {
+      grid-template-columns: 1fr;
+    }
+    & img {
+      max-height: 335px;
+      @include desktop {
+        position: absolute;
+        top: -60px;
+        right: 60px;
+        z-index: -1;
+        max-height: 170px;
+      }
+      @include laptop {
+        right: 30px;
+      }
+      @include tablet768 {
+        display: none;
+      }
+    }
+  }
+}

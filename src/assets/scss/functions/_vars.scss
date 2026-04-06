@@ -1,0 +1,49 @@
+// Переменные
+
+$c-bg: #E8EAF6;
+$c-black: #17204D;
+$c-black5: #F3F4F6;
+$c-black10: rgba(23, 32, 77, .1);
+$c-black40: rgba(23, 32, 77, .4);
+$c-accent: #3245A6;
+$c-white: #fff;
+$c-white20: rgba(255, 255, 255, .2);
+$c-gray-txt: #747994;
+$c-error: #EE1631;
+
+
+$c-lil: #AAB2FF;
+$c-pink: #ECA0FF;
+$c-orange: #FFB784;
+$c-yellow: #F7D486;
+$c-green: #84FFC9;
+
+$gr: linear-gradient(90deg, $c-green 0%, $c-lil 25%, #e1a0ff 50.48%, $c-orange 75%, $c-yellow 100%);
+
+$gr-blue: linear-gradient(117deg, $c-green 0%, $c-lil 100%);
+$gr-lil: linear-gradient(117deg, $c-lil 0%, #e1a0ff 100%);
+$gr-pink: linear-gradient(117deg, #e1a0ff 0%, $c-orange 100%);
+$gr-orange: linear-gradient(117deg, $c-orange 0%, $c-yellow 100%);
+$gr-green: linear-gradient(117deg, #f5ef7d 0%, #b9f29e 50.48%, $c-green 100%);
+
+$s-hover: 0 4px 9px 0 rgba(50, 69, 166, 0.15), 0 16px 16px 0 rgba(50, 69, 166, 0.13), 0 37px 22px 0 rgba(50, 69, 166, 0.08), 0 66px 26px 0 rgba(50, 69, 166, 0.02), 0 103px 29px 0 rgba(50, 69, 166, 0);
+$s-shadow: 2px 2px 8px 0 rgba(50, 69, 166, 0.2);
+
+// size
+$small: 320px;
+$middle: 560px;
+$tablet: 760px;
+$laptop: 960px;
+$desktop: 1200px;
+$wide: 1340px;
+$large: 1800px;
+
+// breakpoints
+$xs: 420px;
+$sm: 580px;
+$smd: 768px;
+$md: 1024px;
+
+$lg: 1200px;
+$extra-lg: 1440px;
+$xlg: 1925px;

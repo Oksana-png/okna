@@ -1,0 +1,69 @@
+.recycling {
+  position: relative;
+  color: $c-bg;
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    z-index: -1;
+    width: 100%;
+    height: calc(100% + 200px);
+    background-image: url('../img/design/recycling.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include media(2000px) {
+      background-size: cover;
+    }
+    @include laptop {
+      height: calc(100% + 280px);
+      top: -140px;
+    }
+    @include tablet768 {
+      height: calc(100% + 160px);
+      top: -80px;
+    }
+  }
+  &__container {
+    max-width: 1078px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 593px 1fr;
+    margin: 0 auto;
+    background-color: $c-accent;
+    border-radius: 40px;
+    @include tablet768 {
+      grid-template-columns: 1fr;
+      padding: 30px 20px;
+    }
+    &-text {
+      padding: 20px;
+      @include laptop {
+        padding: 0;
+      }
+      & h2 {
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        color: $c-white;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: block;
+          width: 100%;
+          height: 2px;
+          background: $gr;
+        }
+      }
+    }
+    & img {
+      margin-left: auto;
+      @include laptop {
+        display: none;
+      }
+    }
+  }
+}

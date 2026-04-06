@@ -1,0 +1,59 @@
+.wrapper {
+  padding: 0 30px;
+  max-width: 1360px;
+  margin: 0 auto;
+
+  @include desktop {
+    max-width: 95%;
+  }
+
+  @include laptop {
+    max-width: 768px;
+  }
+
+  @include tablet768 {
+    padding: 0 15px;
+    max-width: 580px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: inherit;
+}
+
+svg {
+  width: inherit;
+  height: inherit;
+  color: inherit;
+  fill: currentColor;
+}
+
+path {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.section-margin {
+  margin: 140px 0;
+
+  @include laptop {
+    margin: 100px 0;
+  }
+
+  @include tablet768 {
+    margin: 80px 0;
+  }
+}
+
+.page-margin {
+  margin-top: 30px;
+  margin-bottom: 140px;
+  @include laptop {
+    margin-bottom: 100px;
+  }
+  @include tablet768 {
+    margin-bottom: 80px;
+  }
+}

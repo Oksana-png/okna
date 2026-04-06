@@ -1,0 +1,78 @@
+.p-error {
+  position: relative;
+  &::before {
+    @include fon(linear-gradient(181deg, $c-green 0%, $c-lil 25%, #e1a0ff 50.48%, $c-orange 75%, $c-yellow 100%), 320px, 681px);
+    top: -100px;
+    right: 200px;
+    transform: rotate(-52deg);
+    @include laptop {
+      display: none;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    bottom: -165px;
+    width: 100%;
+    background-image: url('../img/design/line.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  &__container {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    @include tablet768 {
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+      grid-template-columns: 1fr;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      @include tablet768 {
+        max-height: 274px;
+      }
+    }
+  }
+  &__content {
+    padding: 40px;
+    background-color: $c-white;
+    border-radius: 20px;
+    @include phone {
+      padding: 20px;
+    }
+    & h1 {
+      margin-bottom: 40px;
+      color: $c-accent;
+    }
+    & p {
+      margin-bottom: 20px;
+    }
+  }
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include desktop {
+      flex-wrap: wrap;
+    }
+    @include phone {
+      flex-direction: column;
+      align-items: stretch;
+      & .btn {
+        text-align: center;
+      }
+    }
+    & .btn-border {
+      background-color: $c-white;
+    }
+  }
+}

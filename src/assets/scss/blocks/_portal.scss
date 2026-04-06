@@ -1,0 +1,106 @@
+.portal {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    z-index: -1;
+    width: 145%;
+    height: 704px;
+    background-image: url('../img/design/line-portal.svg');
+    background-position: -20px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    @include desktop {
+      width: 1900px;
+      bottom: 22px;
+      left: -244px;
+    }
+    @include tablet768 {
+      top: 100px;
+      bottom: auto;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  &__block {
+    position: relative;
+    display: grid;
+    grid-template-columns: 742px 1fr;
+    align-items: center;
+    gap: 30px;
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    @include tablet768 {
+      grid-template-columns: 1fr;
+      & .portal__block-image {
+        order: -1;
+      }
+    }
+    &::before {
+      @include fon($gr-lil, 700px, 300px);
+      top: 300px;
+      transform: rotate(-45deg);
+      @include laptop {
+        width: 500px;
+        height: 200px;
+        top: 80px;
+      }
+    }
+    &:last-child {
+      grid-template-columns: 1fr 742px;
+      @include desktop {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include tablet768{
+        grid-template-columns: 1fr;
+      }
+      &::before {
+        @include fon($gr-pink, 700px, 350px);
+        top: -100px;
+        right: -100px;
+        transform: rotate(-45deg);
+        @include laptop {
+          width: 500px;
+          height: 200px;
+          top: 100px;
+        }
+      }
+      & .portal__block-image {
+        order: -1;
+      }
+    }
+    &-info {
+      & h3 {
+        margin-bottom: 20px;
+        color: $c-black;
+      }
+      & p {
+        margin-bottom: 20px;
+      }
+      & .btn {
+        margin-left: auto;
+      }
+    }
+    &-image {
+      @include glass;
+      padding: 20px;
+      & img {
+        width: 100%;
+        height: 300px;
+        border-radius: 20px;
+        @include desktop {
+          height: 100%;
+        }
+        @include phone {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
