@@ -24,7 +24,8 @@
     }
     &__arrows {
       position: absolute;
-      top: 50%;
+      top: calc(50% - 18px - 24px);
+      height: 0;
       left: -24px;
       z-index: 2;
       transform: translateY(-50%);
@@ -53,6 +54,12 @@
             & .icon {
               stroke: $c-white;
             }
+          }
+        }
+        &:active:not(.swiper-button-disabled) {
+          background-color: $c-black;
+          & .icon {
+            stroke: $c-white;
           }
         }
         &.slider-nav--prev {

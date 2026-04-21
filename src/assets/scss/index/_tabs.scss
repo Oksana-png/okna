@@ -1,0 +1,65 @@
+.tabs {
+  &-wrap {
+    margin-bottom: 20px;
+    @include tablet768 {
+      overflow: scroll;
+      margin: 0 -15px;
+      padding: 0 15px;
+      margin-bottom: 20px;
+    }
+  }
+  &-head {
+    width: max-content;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    border: 2px solid $c-black5;
+    &.tabs-head--light {
+      background-color: $c-black5;
+    }
+    &.tabs-head--dark {
+      background-color: $c-bg;
+    }
+    &__btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      background-color: transparent;
+      font-weight: 400;
+      font-size: 16px;
+      transition: all .3s;
+      @include hover {
+        &:not(.active):hover {
+          color: $c-white;
+          background-color: $c-accent;
+        }
+      }
+      &.active {
+        background-color: $c-white;
+      }
+    }
+  }
+  &-body {
+    &__item {
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      &.active {
+        max-height: max-content;
+        animation: tabsOpen 0.8s 1 cubic-bezier(0.17, 0.38, 0.67, 1.18);
+        animation-fill-mode: forwards;
+        animation-delay: 0.01s;
+      }
+    }
+  }
+}
+
+@keyframes tabsOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

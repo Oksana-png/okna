@@ -1,0 +1,175 @@
+.design-okna {
+  overflow: hidden;
+  padding: 60px 0;
+  background-color: $c-white;
+  @include tablet768 {
+    padding: 40px 0;
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: calc(100% - 450px) 420px;
+    gap: 30px;
+    @include desktop {
+      grid-template-columns: calc(100% - 290px) 260px;
+    }
+    @include tablet768 {
+      grid-template-columns: 100%;
+    }
+    &.active {
+      z-index: 1;
+      &::before {
+        @include fon($gr, 334px, 300px);
+        transform: rotate(96deg);
+        right: 0;
+        top: -90px;
+        @include laptop {
+          right: -148px;
+          top: 108px;
+        }
+      }
+    }
+    & h3 {
+      color: $c-black;
+      margin-bottom: 20px;
+    }
+    & p:not(last-child) {
+      margin-bottom: 20px;
+    }
+    &--one {
+      grid-template-columns: 1fr 295px;
+      gap: 0 30px;
+      @include laptop {
+        grid-template-columns: 1fr 222px;
+        gap: 0 15px;
+      }
+      & .design-okna__item-btn {
+        grid-column: 2/3;
+        grid-row: 1/3;
+        @include laptop {
+          grid-column: auto;
+          grid-row: auto;
+        }
+      }
+      & .design-okna__item-content {
+        @include laptop {
+          grid-column: span 2;
+        }
+      }
+    }
+    &--last {
+      @include laptop {
+        grid-template-columns: 100%;
+        & .design-okna__item-img {
+          display: none;
+        }
+      }
+      & .design-okna__item-img img {
+        max-height: 412px;
+      }
+    }
+    &-btn {
+      @include glass;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      @include laptop {
+        padding: 20px 40px;
+        text-align: center;
+      }
+      @include tablet768 {
+        padding: 20px 12px;
+        gap: 0;
+      }
+      & p {
+        font-weight: bold;
+        margin-bottom: 0 !important;
+      }
+    }
+    &-variants {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      font-size: 0;
+      @include laptop {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include tablet768 {
+        grid-template-columns: 1fr;
+      }
+      & .hover-img {
+        @include laptop {
+          &:nth-child(n + 4) {
+            display: none;
+          }
+        }
+        @include tablet768 {
+          &:nth-child(n + 2) {
+            display: none;
+          }
+        }
+      }
+      & img {
+        height: 120px;
+        width: 100%;
+        border-radius: 20px;
+        @include laptop {
+          height: 130px;
+        }
+        @include tablet768 {
+          height: 130px;
+        }
+      }
+    }
+    &-content {
+      & .btn-link {
+        &::after {
+          display: none;
+        }
+        @include hover {
+          &:hover {
+            & .icon {
+              transform: translateX(10px);
+            }
+          }
+        }
+      }
+    }
+    &-img {
+      @include glass;
+      padding: 20px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      height: max-content;
+      & img {
+        width: 100%;
+        height: 100%;
+        min-height: 220px;
+        max-height: 280px;
+        border-radius: 20px;
+      }
+    }
+    &-slider {
+      overflow: hidden;
+    }
+    &-slide {
+      position: relative;
+      font-size: 0;
+      height: 194px;
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  & .tabs-body {
+    position: relative;
+  }
+}

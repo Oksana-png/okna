@@ -51,6 +51,18 @@
   }
 }
 
+@mixin minwidth($media) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+@mixin nothover {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 
 @mixin glass {
   border-radius: 20px;

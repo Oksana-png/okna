@@ -1,0 +1,69 @@
+.sertificate {
+  position: relative;
+  &::after {
+    @include fon($gr-pink, 350px, 600px);
+    transform: rotate(65deg);
+    top: -120px;
+    right: 200px;
+    @include laptop {
+      top: -250px;
+      right: -250px;
+    }
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 413px calc(100% - 443px);
+    gap: 30px;
+    @include laptop {
+      grid-template-columns: 1fr 265px;
+    }
+    @include tablet768 {
+      grid-template-columns: 100%;
+    }
+  }
+  &__text {
+    position: relative;
+    &::before {
+      @include fon($gr-blue, 400px, 400px);
+      transform: rotate(-45deg);
+      top: -50px;
+      @include laptop {
+        top: -150px;
+      }
+      @include tablet768 {
+        top: -20px;
+      }
+    }
+    & h2 {
+      margin-bottom: 40px;
+    }
+  }
+  &__wrap {
+    @include glass;
+    padding: 20px;
+    @include tablet768 {
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+  &__slider {
+    position: relative;
+    &-swiper {
+      overflow: hidden;
+      & .swiper-slide {
+        border-radius: 20px;
+        overflow: hidden;
+        font-size: 0;
+        @include tablet768 {
+          & img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.reviews {
+  position: relative;
+  &::before {
+    @include fon($gr, 100%, 600px);
+    transform: rotate(195deg);
+    @include laptop {
+      width: 900px;
+      height: 400px;
+    }
+  }
+  &__wrap {
+    @include glass;
+    padding: 20px;
+  }
+  &__item {
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: $c-white;
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+      & span {
+        font-size: 14px;
+        color: $c-gray-txt;
+        line-height: 1.1;
+      }
+      & p {
+        font-weight: bold;
+      }
+    }
+    &-stars {
+      display: flex;
+      align-items: center;
+      font-size: 0;
+      & .icon {
+        fill: $c-accent;
+        &.fill {
+          fill: $c-bg;
+          stroke: $c-bg;
+        }
+      }
+    }
+    &>p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 8;
+      overflow: hidden;
+    }
+  }
+  &__slider {
+    &-swiper {
+      overflow: hidden;
+    }
+  }
+}

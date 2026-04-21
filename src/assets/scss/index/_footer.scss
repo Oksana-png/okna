@@ -1,0 +1,193 @@
+.footer {
+  overflow: hidden;
+  &-top {
+    position: relative;
+    padding: 40px 0;
+    background-color: $c-black;
+    &::before {
+      @include fon($gr-pink, 400px, 320px);
+      z-index: 0;
+      transform: rotate(150deg);
+      bottom: -140px;
+      @include laptop {
+        width: 280px;
+        height: 200px;
+        top: 200px;
+        filter: blur(60px);
+      }
+      @include tablet768 {
+        left: -50px;
+        filter: blur(80px);
+      }
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      color: $c-white;
+      &-logo {
+        font-size: 0;
+        margin-bottom: 20px;
+        & img {
+          width: 100%;
+        }
+      }
+      & a {
+        text-decoration: underline;
+        &::after {
+          display: none;
+        }
+      }
+      & p {
+        margin-bottom: 20px;
+        z-index: 1;
+        @include tablet768 {
+          font-size: 14px;
+        }
+      }
+      & a:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+    &__phone {
+      display: grid !important;
+      grid-template-columns: 24px 1fr;
+      gap: 8px;
+      @include tablet768 {
+        max-width: 160px;
+      }
+      &>*:not(.icon) {
+        grid-column: 2/3;
+      }
+      & a {
+        max-width: max-content;
+        &::after {
+          background-color: $c-bg;
+        }
+        &:hover {
+          color: $c-bg;
+        }
+      }
+      &-social {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+    &__social {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      @include tablet768 {
+        grid-column: span 2;
+      }
+      &-icon {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: $c-bg;
+        & .icon {
+          stroke: $c-bg;
+          flex-shrink: 0;
+        }
+      }
+    }
+    &__nav {
+      display: grid;
+      grid-template-columns: 186px 1fr;
+      gap: 170px;
+      @include media(1400px) {
+        gap: 30px;
+      }
+      @include laptop {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      &-col {
+        &:first-child {
+          & strong {
+            display: block;
+            font-weight: bold;
+            color: $c-white;
+            margin-bottom: 16px;
+          }
+          & ul {
+            gap: 8px;
+          }
+          & li>a {
+            color: $c-bg;
+            font-weight: 400;
+            &::after {
+              background-color: $c-bg;
+            }
+          }
+        }
+        & ul {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        & li>a {
+          color: $c-white;
+          font-weight: bold;
+          &::after {
+            background-color: $c-white;
+          }
+        }
+      }
+    }
+
+    & .wrapper {
+      display: grid;
+      grid-template-columns: 280px 1fr 229px;
+      gap: 170px;
+      @include media(1200px) {
+        gap: 30px;
+      }
+      @include laptop {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      @include tablet768 {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 15px;
+      }
+    }
+  }
+  &-bottom {
+    position: relative;
+    padding: 8px 0;
+    background-color: $c-black;
+    color: $c-white;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      background-image: $gr;
+    }
+    & .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        &>*:nth-child(even) {
+          text-align: right;
+        }
+      }
+      @include tablet768 {
+        grid-template-columns: 1fr;
+        &>*:nth-child(even) {
+          text-align: left;
+        }
+      }
+    }
+    & a {
+      color: $c-bg;
+    }
+  }
+}

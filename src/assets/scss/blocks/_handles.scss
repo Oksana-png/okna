@@ -1,0 +1,81 @@
+.handles {
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    @include laptop {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    & .tabs-head {
+      flex-shrink: 0;
+    }
+  }
+  &__content {
+    overflow: hidden;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 15px));
+    align-items: center;
+    gap: 30px;
+    border-radius: 40px;
+    background-color: $c-white;
+    @include laptop {
+      align-items: start;
+    }
+    @include tablet768 {
+      grid-template-columns: 100%;
+    }
+    &.active {
+      padding: 40px;
+      @include tablet768 {
+        padding: 20px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+    }
+    &-wrap {
+      padding: 10px;
+      border-radius: 20px;
+      background: $gr;
+      @include tablet768 {
+        margin: 0 -10px;
+      }
+    }
+    &-slider {
+      position: relative;
+      background-color: $c-white;
+      border-radius: 20px;
+      padding-bottom: 10px;
+      &-swiper {
+        overflow: hidden;
+      }
+    }
+    &-slide {
+      & img {
+        display: block;
+        height: 260px;
+        width: auto;
+        margin: 0 auto;
+        @include tablet768 {
+          height: 200px;
+        }
+      }
+      &>p {
+        margin-top: 20px;
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 1.1;
+        text-align: center;
+        color: $c-gray-txt;
+      }
+    }
+
+    & h3 {
+      color: $c-black;
+      margin-bottom: 20px;
+    }
+  }
+}

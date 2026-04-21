@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.innerWidth < 768 && !rotoSlider) {
       rotoSlider = new Swiper(".roto__image-slider .roto__image-slider-swiper", {
-      spaceBetween: 0,
-      pagination: {
-        el: ".roto__image-slider .swiper-pagination",
-        type: "bullets",
-        dynamicBullets: true
-      },
-    });
+        spaceBetween: 0,
+        pagination: {
+          el: ".roto__image-slider .swiper-pagination",
+          type: "bullets",
+          dynamicBullets: true
+        },
+      });
     }
   }
 
@@ -104,6 +104,125 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 3,
       }
     }
+  });
+
+  const sliderSertificate = new Swiper(".sertificate__slider .sertificate__slider-swiper", {
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".sertificate__slider .slider-nav--next",
+      prevEl: ".sertificate__slider .slider-nav--prev",
+    },
+    pagination: {
+      el: ".sertificate__slider .swiper-pagination",
+      type: "bullets",
+      dynamicBullets: true,
+      clickable: true,
+    },
+
+    breakpoints: {
+      // when window width is >= 320px
+      200: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 4,
+      }
+    },
+  });
+
+  const sliderHandles = new Swiper(".handles__content-slider .handles__content-slider-swiper", {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: ".handles__content-slider .slider-nav--next",
+        prevEl: ".handles__content-slider .slider-nav--prev",
+      },
+      pagination: {
+        el: ".handles__content-slider .swiper-pagination",
+        type: "bullets",
+        dynamicBullets: true,
+        clickable: true,
+      },
+    },
+  );
+
+  const designOknaSlider = new Swiper(".design-okna__item-swiper", {
+    spaceBetween: 16,
+    pagination: {
+      el: ".design-okna__item-slider .swiper-pagination",
+      type: "bullets",
+      dynamicBullets: true,
+      clickable: true,
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      200: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+    },
+  });
+
+  const reviewsSlider = new Swiper(".reviews__slider-swiper", {
+    spaceBetween: 20,
+    pagination: {
+      el: ".reviews__slider .swiper-pagination",
+      type: "bullets",
+      dynamicBullets: true,
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".reviews__slider .slider-nav--next",
+      prevEl: ".reviews__slider .slider-nav--prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+    },
+  });
+
+
+  const workSlider = new Swiper(".s-works__slider-swiper", {
+    spaceBetween: 16,
+    pagination: {
+      el: ".s-works__slider .swiper-pagination",
+      type: "bullets",
+      dynamicBullets: true,
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".s-works__slider .slider-nav--next",
+      prevEl: ".s-works__slider .slider-nav--prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      200: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+    },
   });
 
 

@@ -17,6 +17,7 @@
   &__container {
     display: grid;
     grid-template-columns: 1fr 770px;
+    align-items: center;
     gap: 30px;
     @include desktop {
       grid-template-columns: 100%;

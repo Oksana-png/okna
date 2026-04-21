@@ -1,0 +1,71 @@
+.balcony-glazing {
+  &__item {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background-color: $c-white;
+    border-radius: 40px;
+    @include desktop {
+      grid-template-columns: 1fr;
+    }
+    &.active {
+      padding: 40px;
+      @include tablet768 {
+        padding: 30px 20px;
+      }
+    }
+    &-content {
+      & img {
+        max-height: 36px;
+      }
+      & h3 {
+        color: $c-black;
+        margin: 20px 0;
+        @include desktop {
+          max-width: 422px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+    &-image {
+      position: relative;
+      @include desktop {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+      }
+      @include tablet768 {
+        display: none;
+      }
+      &::before {
+        @include fon($gr-green, 543px, 340px);
+        transform: rotate(45deg);
+        left: 100px;
+        @include desktop {
+          display: none;
+        }
+      }
+      & img {
+        display: block;
+        height: 100%;
+        margin: auto;
+        @include desktop {
+          max-height: 125px;
+        }
+      }
+    }
+  }
+  
+  & .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    @include tablet768 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

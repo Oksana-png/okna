@@ -59,16 +59,34 @@
     }
     &-btn {
       flex-shrink: 0;
-      & .icon {
-        padding: 7px 6px 6px 5px;
+      & span {
+        padding-left: 4.5px;
+        width: 24px;
+        height: 24px;
         background-image: linear-gradient(0deg, #2aabee 0%, #229ed9 100%);
         border-radius: 50%;
-        fill: $c-white;
-        stroke: none;
+        & .icon {
+          width: 13px;
+          fill: $c-white;
+          stroke: none;
+        }
       }
       &:hover {
         & .icon {
-          fill: inherit;
+          fill: $c-white;
+        }
+      }
+      &--max {
+        & span {
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-image: linear-gradient(74deg, rgb(68, 204, 255) 0%, rgb(85, 51, 238) 66.2%, rgb(153, 51, 221) 100%), radial-gradient(50% 50%, rgb(0, 0, 255) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        & .icon {
+          width: 14.5px;
+          height: 14.5px;
         }
       }
     }
@@ -101,6 +119,153 @@
           display: none;
         }
       }
+    }
+  }
+}
+
+
+.about-num {
+  position: relative;
+  &::before {
+    @include fon($gr-blue, 300px, 420px);
+    transform: rotate(-27deg);
+    left: 250px;
+    @include laptop {
+      top: -200px;
+    }
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 303px 1fr;
+    gap: 30px;
+    @include desktop {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__container {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    @include tablet768 {
+      overflow: scroll;
+      display: flex;
+      gap: 15px;
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0 15px;
+      margin: 0 -15px;
+    }
+  }
+  &__item {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: $c-white;
+    @include tablet768 {
+      width: 180px;
+      flex-shrink: 0;
+    }
+    & strong {
+      display: block;
+      max-width: max-content;
+      margin-bottom: 8px;
+      font-size: 52px;
+      line-height: 1.1;
+      font-weight: bold;
+      color: transparent;
+      background: $gr-lil;
+      background-clip: text;
+      -webkit-background-clip: text;
+      @include laptop {
+        font-size: 40px;
+      }
+      @include tablet768 {
+        font-size: 36px;
+      }
+    }
+    & h3 {
+      margin-bottom: 8px;
+      color: $c-accent;
+    }
+  }
+}
+
+.about-kachestvo {
+  position: relative;
+  &::before {
+    @include fon($gr-blue, 600px, 600px);
+    transform: rotate(-105deg);
+    left: 11%;
+    top: -100px;
+    @include laptop {
+      left: 0;
+    }
+    @include tablet768 {
+      left: auto;
+      right: -300px;
+      top: 150px;
+    }
+  }
+  &::after {
+    @include fon($gr-pink, 300px, 500px);
+    transform: rotate(142deg);
+    top: 0;
+    right: 0;
+    @include laptop {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    @include tablet768 {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__image {
+    @include glass;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    @include tablet768 {
+      grid-template-rows: 1fr;
+    }
+    & img {
+      width: 100%;
+      border-radius: 20px;
+      max-height: 200px;
+      @include laptop {
+        max-height: 215px;
+      }
+      @include tablet768 {
+        max-height: 160px;
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+  &__content {
+    & h2 {
+      margin-bottom: 20px;
+    }
+    & p {
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    & p:first-of-type {
+      margin-bottom: 20px;
     }
   }
 }

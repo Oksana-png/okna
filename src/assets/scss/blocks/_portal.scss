@@ -11,6 +11,9 @@
     background-position: -20px;
     background-size: 100%;
     background-repeat: no-repeat;
+    @include minwidth(2000px) {
+      display: none;
+    }
     @include desktop {
       width: 1900px;
       bottom: 22px;
