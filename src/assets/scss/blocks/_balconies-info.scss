@@ -1,0 +1,76 @@
+.balconies-info {
+  &__container {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    @include laptop {
+      grid-template-columns: 100%;
+    }
+    @include tablet768 {
+      padding: 0;
+      gap: 0;
+      box-shadow: none;
+      background-color: $c-white;
+    }
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include tablet768 {
+      gap: 0;
+    }
+  }
+
+  &__slider {
+    @include tablet768 {
+      margin: 0 auto;
+      width: calc(100% - 40px);
+    }
+    &-swiper {
+      overflow: hidden;
+    }
+    & .swiper-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      @include tablet768 {
+        display: flex;
+        gap: 0;
+      }
+    }
+    & .swiper-slide {
+      @include tablet768 {
+        background-color: $c-bg;
+      }
+      &:nth-child(odd):last-child {
+        grid-column: span 2;
+      }
+    }
+    & .slider-nav {
+      display: none;
+      @include tablet768 {
+        display: block;
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    @include tablet768 {
+      align-items: stretch;
+    }
+    & img {
+      width: max-content;
+      height: 60px;
+    }
+  }
+  & h2 {
+    margin-bottom: 30px;
+  }
+}

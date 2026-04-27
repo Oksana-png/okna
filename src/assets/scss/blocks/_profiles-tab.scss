@@ -1,0 +1,102 @@
+.profiles-tab {
+  padding: 60px 0;
+  background-color: $c-white;
+  @include tablet768 {
+    padding: 0;
+    background-color: transparent;
+  }
+  &__tags {
+    position: absolute;
+    top: 101px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @include desktop {
+      position: static;
+      margin-bottom: 20px;
+    }
+    @include tablet768 {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    & span {
+      padding: 4px 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: $c-black;
+      font-size: 14px;
+      line-height: 1.1;
+      background-color: $c-bg;
+      border-radius: 20px;
+    }
+  }
+  &__slider {
+    position: relative;
+    margin: 0 -30px;
+    padding: 0 30px;
+    @include tablet768 {
+      margin: 0 -15px;
+      padding: 0 15px;
+    }
+    & .slider-nav__arrows {
+      width: 100%;
+      padding: 0 6px;
+      left: 0;
+      @include tablet768 {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+
+  & .wrapper {
+    position: relative;
+  }
+  & .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    @include tablet768 {
+      flex-direction: column;
+      & .btn-border--white {
+        background-color: transparent;
+      }
+    }
+  }
+  & .tabs-wrap {
+    @include tablet768 {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  & .profile {
+    position: relative;
+    padding: 20px 0;
+    @include tablet768 {
+      padding: 30px 20px 20px 20px;
+      background-color: $c-white;
+      border-radius: 40px;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      right: -31px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      display: block;
+      background-color: $c-black5;
+    }
+  }
+}

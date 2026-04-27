@@ -1,4 +1,35 @@
 .complaints {
+  position: relative;
+  &::before {
+    @include fon($gr, 750px, 300px);
+    transform: rotate(-45deg);
+    top: 253px;
+    left: -121px;
+    @include laptop {
+      display: none;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/design/line-articles.svg');
+    background-repeat: no-repeat;
+    background-size: calc(100% + 10px);
+    @include media(1800px) {
+      background-size: cover;
+      background-position: center;
+    }
+    @include desktop {
+      height: 63%;
+    }
+    @include tablet768 {
+      background-position: 61%;
+    }
+  }
   &__container {
     display: grid;
     grid-template-columns: 303px 1fr;

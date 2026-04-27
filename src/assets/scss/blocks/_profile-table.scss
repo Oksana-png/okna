@@ -1,0 +1,113 @@
+.profile-table {
+  &__container {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+  }
+  &__table {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: $c-white;
+  }
+  &__head {
+    display: grid;
+    grid-template-columns: 200px 204px 1fr;
+    @include tablet768 {
+      display: none;
+    }
+    & span {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      color: $c-gray-txt;
+      text-transform: uppercase;
+    }
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: 200px 204px 1fr;
+    align-items: center;
+    border-bottom: 1px solid $c-black5;
+    @include tablet768 {
+      grid-template-columns: 1fr 120px 24px;
+      gap: 0 20px;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+    &.active {
+      @include tablet768 {
+        border-color: transparent;
+        & p {
+          padding: 20px;
+          max-height: 700px;
+        }
+        & .profile-table__item-arrow {
+          transform: rotate(0);
+        }
+      }
+    }
+    &-arrow {
+      display: none;
+      transform: rotate(180deg);
+      transition: transform .3s;
+      @include tablet768 {
+        display: flex;
+      }
+    }
+    &>span:not(.profile-table__item-arrow) {
+      padding: 12px;
+      color: $c-gray-txt;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      border-right: 1px solid $c-black5;
+      @include tablet768 {
+        padding: 20px 0;
+        border-right: none;
+      }
+    }
+    & strong {
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      border-right: 1px solid $c-black5;
+      @include tablet768 {
+        padding: 20px 0;
+        border-right: none;
+      }
+    }
+    & p {
+      padding: 12px;
+      color: $c-gray-txt;
+      @include tablet768 {
+        padding: 0 20px;
+        grid-column: span 3;
+        border-radius: 20px;
+        background-color: $c-black5;
+        max-height: 0;
+        overflow: hidden;
+        transition: all .3s;
+      }
+    }
+  }
+
+  & .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet768 {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+
+  &>.wrapper>a {
+    margin-left: auto;
+  }
+}

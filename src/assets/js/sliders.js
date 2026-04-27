@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
-
   // слайдеры на мобилке
   let rotoSlider = null;
   let complaintsSlider = null;
   let advantagesProfilesSlider = null;
+  let provedalSlider = null;
+  let balconiesInfoSlider = null;
   window.addEventListener("resize", () => {
     clearTimeout(window.resizeTimer);
     window.resizeTimer = setTimeout(initMobileSliders, 250);
@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initRotoSlider();
     initComplaintsSlider();
     initAdvantagesProfilesSlider();
+    initProvedalSlider();
+    initBalconiesInfoSlider();
   }
 
   initMobileSliders();
@@ -67,6 +69,43 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1.41,
         pagination: {
           el: ".advantages-profiles__slider .swiper-pagination",
+          type: "bullets",
+          dynamicBullets: true,
+        },
+      });
+    }
+  }
+
+  function initProvedalSlider() {
+    if (provedalSlider && !(window.innerWidth < 768)) {
+      provedalSlider.destroy(true, true);
+      provedalSlider = null;
+    }
+
+    if (window.innerWidth < 768 && !provedalSlider) {
+      provedalSlider = new Swiper(".provedal__slider .provedal__slider-swiper", {
+        spaceBetween: 15,
+        slidesPerView: 1.14,
+        pagination: {
+          el: ".provedal__slider .swiper-pagination",
+          type: "bullets",
+          dynamicBullets: true,
+        },
+      });
+    }
+  }
+
+  function initBalconiesInfoSlider() {
+    if (balconiesInfoSlider && !(window.innerWidth < 768)) {
+      balconiesInfoSlider.destroy(true, true);
+      balconiesInfoSlider = null;
+    }
+    if (window.innerWidth < 768 && !balconiesInfoSlider) {
+      balconiesInfoSlider = new Swiper(".balconies-info__slider .balconies-info__slider-swiper", {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        pagination: {
+          el: ".balconies-info__slider .swiper-pagination",
           type: "bullets",
           dynamicBullets: true,
         },
@@ -198,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-
   const workSlider = new Swiper(".s-works__slider-swiper", {
     spaceBetween: 16,
     pagination: {
@@ -225,6 +263,43 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+
+
+  function profilesTab() {
+    const allProfileTabs = document.querySelectorAll(".profiles-tab__slider");
+    allProfileTabs.forEach((slider, i) => {
+      slider.classList.add(`profiles-tab__slider--${i}`);
+
+      const profilesTabSlider = new Swiper(slider.querySelector(".profiles-tab__slider-swiper"), {
+        spaceBetween: 60,
+        threshold: 50,
+        longSwipesRatio: 0.5,
+        pagination: {
+          el: `.profiles-tab__slider--${i} .swiper-pagination`,
+          type: "bullets",
+          dynamicBullets: true,
+          clickable: true,
+        },
+        navigation: {
+          nextEl: `.profiles-tab__slider--${i} .slider-nav--next`,
+          prevEl: `.profiles-tab__slider--${i} .slider-nav--prev`,
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          200: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1200: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    });
+  }
+  profilesTab();
 
 
   window.dispatchEvent(new Event("scroll"));

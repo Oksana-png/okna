@@ -1,0 +1,16 @@
+.breadcrumbs {
+  margin-bottom: 40px;
+  @include tablet768 {
+    margin-bottom: 30px;
+  }
+  & ul {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    color: $c-black;
+    & li.active {
+      color: $c-accent;
+    }
+  }
+}

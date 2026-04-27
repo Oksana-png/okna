@@ -47,6 +47,48 @@ document.addEventListener('DOMContentLoaded', () => {
     menuOpen.classList.toggle("open");
   });
 
+  // фиксирование меню при прокрутке
+  function fixedMenu(scrollTop) {
+    const menu = document.querySelector(".header-fixed");
+    const menuMobile = document.querySelector(".header-mobile");
+    const header = document.querySelector(".header");
+    if (scrollTop > 500) {
+      menu.classList.add("fixed");
+      menuMobile.classList.add("fixed");
+      header.classList.add("fixed");
+    } else {
+      menu.classList.remove("fixed");
+      menuMobile.classList.remove("fixed");
+      header.classList.remove("fixed");
+    }
+  }
+
+  // Лупа в ширину меню
+  let widthSearch = 0;
+  function updateSearchWidth() {
+    const wrap = document.querySelector(".header-fixed__wrapper").offsetWidth;
+    const widthNav = document.querySelector(".header-nav").offsetWidth;
+    const gap =
+      2 /
+      (wrap -
+        document.querySelector(".header-fixed__btns").offsetWidth -
+        185 -
+        widthNav);
+    widthSearch = widthNav + gap + 48 + 40;
+    const styleHeaderSearch = `
+    .search__input:focus {
+      width: ${widthSearch}px;
+    }
+    @media (min-width: 768px) {
+      .search:hover .search__input {
+        width: ${widthSearch}px;
+      }
+    }`;
+    document.querySelector("#header-search-style").innerHTML =
+      styleHeaderSearch;
+  }
+  updateSearchWidth();
+
   // раскрытие пунктов faq и других вопросов
   function listdown() {
     const allListDowm = document.querySelectorAll(".listdown__title");
@@ -56,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
   listdown();
 
   // табы на всем сайте
@@ -131,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btnOpenModal.dataset.openModal === "modal__work") {
         openWork(btnOpenModal);
       }
-      
+
       e.preventDefault();
       const selectorModal = btnOpenModal.dataset.openModal;
       const modal = document.querySelector(`.${selectorModal}`);
@@ -150,18 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
+  // открытие модалки Выполненной работы
   function openWork(btn) {
     const title = btn.dataset.title;
     const text = btn.dataset.text;
     const slider = document.querySelector(".modal__work .swiper-wrapper");
-    let imgs = btn.dataset.img?.split(',');
+    let imgs = btn.dataset.img?.split(",");
     document.querySelector(".modal__work h3").textContent = title;
     document.querySelector(".modal__work p").textContent = text;
     slider.innerHTML = "";
     imgs.forEach((img) => {
-      const elem = document.createElement('div');
-      elem.className = 'swiper-slide hover-img';
+      const elem = document.createElement("div");
+      elem.className = "swiper-slide hover-img";
       elem.innerHTML = `<a href="${img}" data-fancybox="work"></a><img src="${img}" alt="${title}">`;
       slider.appendChild(elem);
     });
@@ -197,9 +238,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // таблица раскрывающая на мобилке
+  const allSell = document.querySelectorAll(".profile-table__item");
+  allSell?.forEach((sell) => {
+    sell.addEventListener('click', (e) => {
+      if (e.target.tagName !== "P") {
+        e.target.closest(".profile-table__item").classList.toggle('active');
+      }
+    });
+  })
+
   // кнопка ВВЕРХ
   window.addEventListener("scroll", () => {
     scrollTop(window.scrollY);
+    fixedMenu(window.scrollY);
   });
-
 });
