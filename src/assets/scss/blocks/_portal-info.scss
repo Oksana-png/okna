@@ -1,0 +1,135 @@
+.portal-info {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    @include laptop {
+      grid-template-columns: 1fr;
+    }
+    @include tablet768 {
+      gap: 0;
+      border-radius: 40px;
+      background-color: $c-white;
+    }
+  }
+  &__glass {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    @include tablet768 {
+      padding: 0;
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include laptop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    @include tablet768 {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    & .info__block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      @include laptop {
+        padding: 30px;
+      }
+      &>img {
+        height: 60px;
+        max-width: max-content;
+      }
+    }
+  }
+  &__img {
+    height: 211px;
+    @include laptop {
+      height: 100%;
+    }
+    @include tablet768 {
+      padding: 0 20px;
+      height: 200px;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
+  }
+  &__table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    & span {
+      padding-top: 4px;
+      font-size: 14px;
+      line-height: 1.1;
+      color: $c-gray-txt;
+      overflow-wrap: break-word;
+    }
+  }
+  &__garmony {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    align-items: start;
+    gap: 20px;
+    padding: 20px;
+    grid-column: span 2;
+    border-radius: 20px;
+    background-color: $c-white;
+    @include laptop {
+      grid-template-columns: 1fr;
+      grid-column: span 1;
+    }
+    &-imgs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      @include phone {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      & .hover-img {
+        font-size: 0;
+        height: 200px;
+        @include laptop {
+          height: auto;
+        }
+        @include phone {
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        @include laptop {
+          aspect-ratio: 1/1;
+        }
+      }
+    }
+
+    & h3 {
+      margin-bottom: 8px;
+    }
+    & p {
+      margin-bottom: 8px;
+    }
+  }
+}

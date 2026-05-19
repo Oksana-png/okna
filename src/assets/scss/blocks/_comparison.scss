@@ -1,3 +1,150 @@
 .comparison {
-  
+  position: relative;
+  &::before {
+    @include fon($gr, 1100px, 400px);
+    transform: rotate(200deg);
+    left: -50px;
+  }
+  &__wrap {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    @include tablet768 {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+  &__table {
+    display: grid;
+    grid-template-columns: 200px calc(100% - 200px);
+    align-items: end;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: $c-white;
+    @include tablet768 {
+      padding: 0;
+      padding-bottom: 15px;
+      grid-template-columns: 140px calc(100% - 140px);
+    }
+  }
+  &__head {
+    box-shadow: 5px 0 4px 0 rgba(50, 69, 166, 0.05);
+    padding-bottom: 20px;
+    &-info {
+      padding: 12px;
+      border-right: 1px solid $c-black5;
+      color: $c-gray-txt;
+      transition: all .1s;
+      &.active {
+        @include hover {
+          color: $c-black;
+        }
+      }
+    }
+  }
+  &__body {
+    & .simplebar-track.simplebar-horizontal {
+      left: 16px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: $c-black5;
+      @include tablet768 {
+        right: 8px;
+      }
+      & .simplebar-scrollbar::before {
+        top: 0;
+        bottom: 0;
+        background: $gr;
+        opacity: 1;
+      }
+    }
+    &-body {
+      display: flex;
+      padding-bottom: 20px;
+      &-wrap {
+        display: flex;
+      }
+    }
+    &-head {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      text-align: center;
+      color: $c-gray-txt;
+      & p {
+        padding: 12px;
+      }
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      width: 204px;
+      flex-shrink: 0;
+      @include laptop {
+        width: 143px;
+      }
+      @include phone {
+        width: 110px;
+      }
+      &:last-child {
+        & span {
+          border-right: none;
+        }
+      }
+      & span {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        text-align: center;
+        border-right: 1px solid $c-black5;
+        transition: all .3s;
+        &:first-child {
+          color: $c-gray-txt;
+          &.active {
+            @include hover {
+              color: $c-black;
+            }
+          }
+        }
+        &:not(:first-child) {
+          color: $c-black;
+          font-weight: bold;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid $c-black5;
+        }
+        @include hover {
+          &:hover {
+            border-radius: 8px;
+            background-color: $c-white;
+            z-index: 2;
+            &::after {
+              content: '';
+              position: absolute;
+              top: -12px;
+              left: -12px;
+              z-index: 1;
+              background-color: rgba(255, 255, 255, 0.2);
+              border-radius: 20px;
+              width: calc(100% + 24px);
+              height: calc(100% + 24px);
+            }
+          }
+        }
+
+        @include hover {
+          &.row-active {
+            background-color: $c-bg;
+            border-color: transparent;
+          }
+          &.col-active {
+            background-color: $c-bg;
+            border-color: transparent;
+          }
+        }
+      }
+    }
+  }
 }

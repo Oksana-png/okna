@@ -301,6 +301,92 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   profilesTab();
 
+  function glassPortfolio() {
+    const allSliders = document.querySelectorAll(".glass-works__slider");
+    allSliders?.forEach((slider, i) => {
+      slider.classList.add(`glass-works__slider--${i}`);
+      const thumbs = slider.querySelector(".glass-works__thumbs");
+      const sliderMain = slider.querySelector(".glass-works__slider-swiper");
+      const glassSliderThumbs = new Swiper(thumbs, {
+        spaceBetween: 20,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+          // when window width is >= 320px
+          200: {
+            spaceBetween: 15,
+          },
+          768: {
+            spaceBetween: 20,
+          },
+        },
+      });
+      const glassSlider = new Swiper(sliderMain, {
+        spaceBetween: 0,
+        pagination: {
+          el: `.glass-works__slider--${i} .swiper-pagination`,
+          type: "bullets",
+          dynamicBullets: true,
+          clickable: true,
+        },
+        navigation: {
+          nextEl: `.glass-works__slider--${i} .slider-nav--next`,
+          prevEl: `.glass-works__slider--${i} .slider-nav--prev`,
+        },
+        thumbs: {
+          swiper: glassSliderThumbs,
+        },
+      });
+    });
+  }
+  glassPortfolio();
+
+  const articlesSlider = new Swiper(".s-articles__slider-swiper", {
+    spaceBetween: 20,
+    pagination: {
+      el: ".s-articles__slider .swiper-pagination",
+      type: "bullets",
+      dynamicBullets: true,
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".s-articles__slider .slider-nav--next",
+      prevEl: ".s-articles__slider .slider-nav--prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  function workSliders() {
+    const allWork = document.querySelectorAll(".work__slider");
+    allWork?.forEach((work, i) => {
+      work.classList.add(`work__slider--${i}`);
+      const workSlider = new Swiper(work.querySelector(".work__slider-swiper"), {
+        spaceBetween: 0,
+        pagination: {
+          el: `.work__slider--${i} .swiper-pagination`,
+          type: "bullets",
+          dynamicBullets: true,
+          clickable: true,
+        },
+      });
+    });
+  }
+  workSliders();
 
   window.dispatchEvent(new Event("scroll"));
 });

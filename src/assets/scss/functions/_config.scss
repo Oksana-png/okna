@@ -549,6 +549,57 @@ svg {
   }
 }
 
+.pagination-nav {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  &__wrap {
+    padding: 13.5px 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 40px;
+    background-color: $c-white;
+    & .active {
+      font-weight: bold;
+      color: $c-accent;
+    }
+  }
+  &__arrow {
+    cursor: auto;
+    background-color: transparent;
+    &:first-child {
+      transform: rotate(180deg);
+    }
+    & span {
+      display: block;
+      padding: 12px;
+      font-size: 0;
+      background-color: $c-white;
+      border-radius: 50%;
+    }
+    & a {
+      padding: 12px;
+      font-size: 0;
+      background-color: $c-white;
+      border-radius: 50%;
+      @include hover {
+        &:hover {
+          background-color: $c-accent;
+          & .icon {
+            stroke: $c-white;
+          }
+        }
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
 @keyframes bgin{
 	from {
     left: -100%;

@@ -46,11 +46,17 @@
         }
       }
     }
-    &>p {
+    &-content {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 8;
       overflow: hidden;
+    }
+    &-link {
+      margin-top: 10px;
+      background-color: transparent;
+      color: $c-accent;
+      text-decoration: underline;
     }
   }
   &__slider {

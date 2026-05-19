@@ -1,0 +1,50 @@
+.type-plisse {
+  position: relative;
+  padding: 60px 0;
+  background-color: $c-white;
+  &::before {
+    @include fon($gr, 300px, 280px);
+    z-index: 0;
+    transform: rotate(106deg);
+    filter: blur(80px);
+    right: 180px;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    @include laptop {
+      gap: 16px;
+    }
+    @include tablet768 {
+      display: flex;
+      overflow: scroll;
+      padding: 0 15px;
+      margin: 0 -15px;
+    }
+  }
+  &__item {
+    @include tablet768 {
+      width: 140px;
+      flex-shrink: 0;
+    }
+    & img {
+      margin-bottom: 8px;
+      height: 231px;
+      border-radius: 20px;
+      @include laptop {
+        height: 140px;
+      }
+    }
+    & h3 {
+      font-size: 16px;
+      text-align: center;
+      color: $c-black;
+    }
+  }
+
+  & .wrapper {
+    position: relative;
+    z-index: 1;
+  }
+}

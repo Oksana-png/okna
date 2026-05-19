@@ -48,6 +48,16 @@
             }
           }
         }
+        & .hover-img {
+          font-size: 0;
+          height: 220px;
+          @include laptop {
+            height: 134px;
+          }
+          @include tablet768 {
+            height: 160px;
+          }
+        }
       }
       & .slider-nav {
         display: none;

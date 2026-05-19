@@ -37,11 +37,14 @@
   }
   &__info {
     position: relative;
-    padding-bottom: 93px;
+    padding-bottom: 111px;
     margin-top: 20px;
     grid-column: 1/2;
     @include desktop {
       margin-top: 0;
+    }
+    @include tablet768 {
+      padding-bottom: 30px;
     }
     &>p {
       margin-bottom: 40px;
@@ -66,9 +69,16 @@
       }
       @include phone {
         & .btn {
+          justify-content: center;
           width: 100%;
+          max-width: 100%;
         }
       }
+    }
+    & h3 {
+      color: $c-black;
+      margin-bottom: 20px;
+      margin-top: 8px;
     }
   }
   &__image {
@@ -110,29 +120,30 @@
     width: 747px;
     padding: 20px 30px;
     display: grid;
-    grid-template-columns: 140px 1fr 1fr 170px;
+    grid-template-columns: 170px 1fr 1fr 1fr;
     align-items: center;
     background-color: $c-white;
     border-radius: 20px;
     @include laptop {
       width: 585px;
-      grid-template-columns: 140px 1fr 1fr 115px;
+      grid-template-columns: 170px 1fr 1fr 1fr;
     }
     @include tablet768 {
       position: relative;
       padding: 20px;
       width: 100%;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 62px 62px;
+      grid-template-rows: 74px 62px;
       gap: 24px;
     }
     &__block {
-      min-width: 119px;
+      min-width: 170px;
       padding-right: 20px;
       border-right: 1px solid $c-bg;
       @include tablet768 {
         position: relative;
         padding: 0;
+        min-width: 162px;
         width: 100%;
         height: 100%;
         border: none;
@@ -155,9 +166,17 @@
           background-color: $c-bg;
         }
       }
+      & iframe {
+        @include tablet768 {
+          margin: 0 auto;
+        }
+      }
       & p {
         font-size: 12px;
         font-family: "Inter", sans-serif;
+        @include tablet768 {
+          text-align: center;
+        }
       }
     }
     &>p {
@@ -210,5 +229,343 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+
+.hero-repair {
+  position: relative;
+  &::before {
+    @include fon(linear-gradient(181deg, $c-green 0%, $c-lil 25%, #e1a0ff 50.48%, $c-orange 75%, $c-yellow 100%), 320px, 681px);
+    top: -100px;
+    right: 200px;
+    transform: rotate(-52deg);
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    bottom: -11px;
+    width: 100%;
+    background-image: url('../img/design/line.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    @include tablet768 {
+      background-size: auto;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0 30px;
+    @include desktop {
+      align-items: flex-start;
+      gap: 20px 30px;
+    }
+    @include tablet768 {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  &__info {
+    position: relative;
+    padding-bottom: 111px;
+    margin-top: 20px;
+    grid-column: 1/2;
+    @include desktop {
+      margin-top: 0;
+    }
+    @include laptop {
+      padding-bottom: 193px;
+    }
+    @include tablet768 {
+      padding-bottom: 30px;
+    }
+    &>p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    & h3 {
+      color: $c-black;
+      margin-bottom: 20px;
+      margin-top: 8px;
+    }
+    &>.btn {
+      @include phone {
+        width: 100%;
+      }
+    }
+  }
+  &__image {
+    @include glass;
+    padding: 20px;
+    grid-row: 1/3;
+    grid-column: 2/3;
+    font-size: 0;
+    @include desktop {
+      grid-row: 2/3;
+    }
+    @include tablet768 {
+      display: none;
+    }
+    & picture {
+      overflow: hidden;
+      border-radius: 20px;
+      @include laptop {
+        height: 468px;
+      }
+    }
+  }
+  & h1 {
+    @include desktop {
+      grid-column: 1/3;
+    }
+    @include tablet768 {
+      grid-column: auto;
+    }
+    @include phone {
+      text-align: center;
+    }
+  }
+  &__plashka {
+    position: absolute;
+    z-index: 1;
+    width: 857px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: center;
+    background-color: $c-white;
+    border-radius: 20px;
+    margin-top: 40px;
+    @include laptop {
+      width: 668px;
+    }
+    @include tablet768 {
+      position: relative;
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    & p {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+      &:not(:last-child) {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          height: 100%;
+          right: -20px;
+          width: 2px;
+          display: block;
+          background: $gr;
+          @include tablet768 {
+            width: 100%;
+            height: 2px;
+            top: auto;
+            right: 0;
+            bottom: -20px;
+          }
+        }
+      }
+      &:nth-child(2) {
+        &>span {
+          background: $gr-lil;
+          background-clip: text;
+        }
+      }
+      &:nth-child(3) {
+        &>span {
+          background: $gr-pink;
+          background-clip: text;
+        }
+      }
+      &>span {
+        font-size: 40px;
+        line-height: 1.1;
+        background: $gr-blue;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-weight: bold;
+      }
+      &>strong {
+        color: $c-accent;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.hero-about {
+  position: relative;
+  &::before {
+    @include fon(linear-gradient(181deg, $c-green 0%, $c-lil 25%, #e1a0ff 50.48%, $c-orange 75%, $c-yellow 100%), 320px, 681px);
+    top: -100px;
+    right: 200px;
+    transform: rotate(-52deg);
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    bottom: -11px;
+    width: 100%;
+    background-image: url('../img/design/line.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    @include tablet768 {
+      background-size: auto;
+    }
+  }
+  &__title {
+    @include desktop {
+      grid-column: 1/3;
+    }
+    @include tablet768 {
+      grid-column: auto;
+    }
+  }
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    @include phone {
+      justify-content: center;
+    }
+    & span {
+      font-size: 14px;
+      line-height: 1.1;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background-color: $c-lil;
+      &:nth-child(2) {
+        background-color: $c-pink;
+      }
+      &:nth-child(3) {
+        background-color: $c-orange;
+      }
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 0 30px;
+    @include desktop {
+      align-items: flex-start;
+      gap: 20px 30px;
+    }
+    @include tablet768 {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  &__info {
+    position: relative;
+    padding-bottom: 230px;
+    margin-top: 20px;
+    grid-column: 1/2;
+    @include desktop {
+      margin-top: 0;
+    }
+    @include laptop {
+      padding-bottom: 193px;
+    }
+    @include tablet768 {
+      padding-bottom: 30px;
+    }
+    &>p {
+      font-size: 24px;
+      @include tablet768 {
+        font-size: 22px;
+      }
+      @include phone {
+        text-align: center;
+      }
+    }
+    & h3 {
+      color: $c-black;
+      margin-bottom: 20px;
+      margin-top: 8px;
+    }
+    &>.btn {
+      @include phone {
+        width: 100%;
+      }
+    }
+  }
+  &__image {
+    @include glass;
+    padding: 20px;
+    grid-row: 1/3;
+    grid-column: 2/3;
+    font-size: 0;
+    @include desktop {
+      grid-row: 2/3;
+    }
+    @include tablet768 {
+      display: none;
+    }
+    & picture {
+      overflow: hidden;
+      border-radius: 20px;
+      @include laptop {
+        height: 468px;
+      }
+    }
+  }
+  & h1 {
+    @include phone {
+      text-align: center;
+    }
+  }
+  &__wrap {
+    position: absolute;
+    z-index: 1;
+    width: 635px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+    @include laptop {
+      width: 500px;
+    }
+    @include tablet768 {
+      position: relative;
+      width: 100%;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    & p {
+      position: relative;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background-color: $c-white;
+      border-radius: 20px;
+      height: 100%;
+      &>strong {
+        color: $c-accent;
+        font-size: 16px;
+      }
+    }
   }
 }

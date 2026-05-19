@@ -241,16 +241,201 @@ document.addEventListener('DOMContentLoaded', () => {
   // таблица раскрывающая на мобилке
   const allSell = document.querySelectorAll(".profile-table__item");
   allSell?.forEach((sell) => {
-    sell.addEventListener('click', (e) => {
+    sell.addEventListener("click", (e) => {
       if (e.target.tagName !== "P") {
-        e.target.closest(".profile-table__item").classList.toggle('active');
+        e.target.closest(".profile-table__item").classList.toggle("active");
       }
     });
-  })
+  });
+
+  // Сравнение выделение ячеек
+  const comparisonTable = document.querySelector(".comparison__table");
+  if (comparisonTable) comparisonInit();
+  function comparisonInit() {
+    const allCell = document.querySelectorAll(
+      ".comparison__body-item span:not(:first-child)",
+    );
+    const allBodyHead = document.querySelectorAll(
+      ".comparison__body-item span:first-child",
+    );
+    const allHeadItem = document.querySelectorAll(".comparison__head-info");
+    allCell.forEach((cell) => {
+      cell.addEventListener("mouseover", () => {
+        let col = cell.dataset.col;
+        let row = cell.dataset.row;
+        allCell.forEach((itemCell, ind) => {
+          if (cell === itemCell) return;
+
+          if (itemCell.dataset.col == col) {
+            itemCell.classList.add("col-active");
+          }
+          if (itemCell.dataset.row == row) {
+            itemCell.classList.add("row-active");
+          }
+        });
+        allBodyHead.forEach((itemHead) => {
+          if (itemHead.dataset.col == col) itemHead.classList.add("active");
+        });
+        allHeadItem[row - 1].classList.add("active");
+      });
+
+      cell.addEventListener("mouseout", () => {
+        allCell.forEach((item) => {
+          item.classList.remove("col-active", "row-active");
+        });
+        allBodyHead.forEach((itemHead) => itemHead.classList.remove("active"));
+        allHeadItem.forEach((item) => item.classList.remove("active"));
+      });
+    });
+
+    allHeadItem.forEach((item, ind) => {
+      if (item.clientHeight > 45) {
+        const rowAll = document.querySelectorAll(`[data-row='${ind + 1}']`);
+        rowAll.forEach((rowi) => {
+          rowi.style.height = `${item.clientHeight}px`;
+        });
+      }
+    });
+  }
 
   // кнопка ВВЕРХ
   window.addEventListener("scroll", () => {
     scrollTop(window.scrollY);
     fixedMenu(window.scrollY);
+  });
+
+  const allBtnReviews = document.querySelectorAll(".reviews__item-link");
+  allBtnReviews?.forEach((btn, ind) => {
+    const modalContainer = document.querySelector(".modal__reviews-container");
+    const parentReview = btn.closest(".reviews__item");
+    const headReview = parentReview.querySelector(".reviews__item-wrap");
+    const contentReview = parentReview.querySelector(".reviews__item-content");
+    const head2Review = parentReview.querySelector(".reviews__item-wrap:nth-child(2)");
+
+
+    setTimeout(() => {
+      if (contentReview.clientHeight < 160) {
+        btn.style.display = 'none';
+      }
+    }, 1);
+
+
+    btn.addEventListener("click", () => {
+      document.querySelector('.modal__reviews').classList.add('active');
+
+      modalContainer.innerHTML = '';
+      modalContainer.appendChild(headReview.cloneNode(true));
+      modalContainer.appendChild(head2Review.cloneNode(true));
+      modalContainer.appendChild(contentReview.cloneNode(true));
+    });
+  })
+
+  
+  // function initArticleNav() {
+  //   const allTitle = document.querySelectorAll('.p-article__content h3');
+  //   if (!allTitle) return;
+  //   const containerNav = document.querySelector(".p-article__nav");
+
+  //   allTitle.forEach((title, index) => {
+  //     title.id = `title${index}`;
+  //     let link = document.createElement('a');
+  //     link.textContent = title.textContent;
+  //     link.classList.add('scroll-link');
+  //     link.href = `#title${index}`;
+
+  //     containerNav.appendChild(link);
+  //   });
+  // }
+  // initArticleNav();
+
+  function initScrollLink() {
+    const allLink = document.querySelectorAll('.scroll-link');
+    
+    allLink.forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const blockID = anchor.getAttribute("href").substr(1);
+        const elem = document.getElementById(blockID);
+        const scroll = getOffsetTop(elem) - window.scrollY - 150;
+        window.scrollBy({
+          top: scroll,
+          behavior: "smooth",
+        });
+      })
+    })
+
+    function getOffsetTop(element) {
+      let offsetTop = 0;
+      while (element) {
+        offsetTop += element.offsetTop;
+        element = element.offsetParent;
+      }
+      return offsetTop;
+    }
+  }
+  initScrollLink();
+
+  // Теги в статьях
+  const allbtnsTag = document.querySelectorAll('.p-articles__tags span[data-filter]');
+  if (allbtnsTag.length) {
+    let params = new URLSearchParams(document.location.search);
+    let valueArr = params.get('tag')?.split('||'); // 'tag' – это имя целевого параметра
+    if (valueArr) {
+      valueArr.forEach((text) => {
+        document.querySelector(`[data-filter='${text}']`).classList.add('active');
+      })
+    }
+    
+    allbtnsTag.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let target = e.target;
+        const queryText = target.getAttribute('data-filter');
+        const url = new URL(window.location);
+        const params = url.searchParams;
+        const separator = '||';
+        // Получаем текущее значение tag или пустую строку
+        let currentTag = params.get('tag') || '';
+        
+        if (target.classList.contains('active')) {
+          target.classList.remove('active');
+          let tagArray = currentTag ? currentTag.split(separator) : [];
+          const tagIndex = tagArray.indexOf(queryText);
+          
+          if (tagIndex > -1) {
+            tagArray.splice(tagIndex, 1); // Удаляем тег
+          }
+          
+          const newQuery = tagArray.length ? tagArray.join(separator) : '';
+          if (newQuery) {
+            params.set('tag', newQuery);
+          } else {
+            params.delete('tag'); // Удаляем параметр полностью если пусто
+          }
+          
+        } else {
+          target.classList.add('active');
+          // Добавляем новое значение
+          const newQuery = currentTag ? `${currentTag}${separator}${queryText}` : queryText;
+          // Устанавливаем обновлённый параметр
+          params.set('tag', newQuery);
+        }
+        
+        // Обновляем URL в адресной строке
+        window.history.pushState({}, '', url);
+        location.reload();
+      });
+    });
+  }
+
+  // Слушаем событие успешной отправки формы SendIt
+  document.addEventListener("si:send:success", function (e) {
+    const { action, target, result, headers, Sending } = e.detail;
+    const form = e.detail.target;
+    const formName = form.getAttribute("data-si-form");
+    const succesModal = document.querySelector('.modal__success');
+    if (formName === "engineerBig" || formName === "engineer") {
+      succesModal.classList.add("active");
+    }
   });
 });

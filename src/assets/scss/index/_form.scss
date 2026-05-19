@@ -169,6 +169,9 @@
     border-color: $c-accent;
     color: $c-black;
   }
+  &.si-error {
+    border-color: $c-error;
+  }
 }
 
 .policy {

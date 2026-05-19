@@ -13,4 +13,11 @@
       color: $c-accent;
     }
   }
+  &-margin {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    @include tablet768 {
+      margin-bottom: 30px;
+    }
+  }
 }

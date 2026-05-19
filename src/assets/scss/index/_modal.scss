@@ -142,6 +142,71 @@
       margin-bottom: 8px;
     }
   }
+  &__reviews {
+    @include tablet768 {
+      align-items: flex-start;
+    }
+    & .modal__body {
+      width: 100%;
+      max-width: 620px;
+    }
+    &-container {
+      & .reviews__item-content {
+        -webkit-line-clamp: 100;
+        & p:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  &__success {
+    & .modal__body {
+      max-width: 620px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      @include tablet768 {
+        grid-template-columns: 100%;
+      }
+    }
+    &-content {
+      & p {
+        @include tablet768 {
+          text-align: center;
+        }
+        margin-bottom: 8px;
+        font-weight: bold;
+        &:last-of-type {
+          font-weight: normal;
+          color: $c-gray-txt;
+          margin-bottom: 20px;
+          @include tablet768 {
+            text-align: left;
+          }
+        }
+      }
+      & h2 {
+        margin-bottom: 20px;
+        color: $c-accent;
+        @include tablet768 {
+          text-align: center;
+        }
+      }
+      & .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      @include tablet768 {
+        height: 200px;
+      }
+    }
+  }
 }
 
 
