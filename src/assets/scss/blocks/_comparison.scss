@@ -65,15 +65,6 @@
         display: flex;
       }
     }
-    &-head {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      text-align: center;
-      color: $c-gray-txt;
-      & p {
-        padding: 12px;
-      }
-    }
     &-item {
       display: flex;
       flex-direction: column;
@@ -102,6 +93,15 @@
         transition: all .3s;
         &:first-child {
           color: $c-gray-txt;
+          &.active {
+            @include hover {
+              color: $c-black;
+            }
+          }
+        }
+        &:nth-child(2) {
+          color: $c-gray-txt !important;
+          font-weight: normal !important;
           &.active {
             @include hover {
               color: $c-black;

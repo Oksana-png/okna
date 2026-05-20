@@ -388,5 +388,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   workSliders();
 
+  const sProfilesSlider = new Swiper(".s-profiles__slider-swiper", {
+    spaceBetween: 30,
+    pagination: {
+      el: ".s-profiles__slider .swiper-pagination",
+      type: "bullets",
+      dynamicBullets: true,
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".s-profiles__slider .slider-nav--next",
+      prevEl: ".s-profiles__slider .slider-nav--prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1201: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
   window.dispatchEvent(new Event("scroll"));
 });
