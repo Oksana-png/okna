@@ -1,3 +1,36 @@
 .hero-nav {
-  
+  padding-top: 40px;
+  background-color: $c-white;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include desktop {
+      justify-content: flex-start;
+      max-width: max-content;
+      overflow-x: scroll;
+    }
+  }
+  &__ul {
+    display: flex;
+    align-items: flex-end;
+    flex-shrink: 0;
+    & li {
+      flex-shrink: 0;
+    }
+    & a {
+      padding: 0 20px 16px 20px;
+      font-weight: bold;
+      &::after {
+        bottom: -1px;
+      }
+    }
+  }
+
+  & .wrapper {
+    @include desktop {
+      padding: 0;
+      max-width: max-content;
+    }
+  }
 }

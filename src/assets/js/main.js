@@ -348,21 +348,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
   // initArticleNav();
 
+  // Якорные ссылки
   function initScrollLink() {
-    const allLink = document.querySelectorAll('.scroll-link');
-    
-    allLink.forEach((anchor) => {
+    document.querySelectorAll('.scroll-link').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const blockID = anchor.getAttribute("href").substr(1);
-        const elem = document.getElementById(blockID);
-        const scroll = getOffsetTop(elem) - window.scrollY - 150;
-        window.scrollBy({
+        const u = new URL(anchor.getAttribute("href"), location.href);
+        if (u.hash && u.pathname === location.pathname) {
+          e.preventDefault();
+          const blockID = anchor.getAttribute("href").substr(1);
+          const elem = document.getElementById(blockID);
+          const scroll = getOffsetTop(elem) - window.scrollY - 150;
+          window.scrollBy({
+            top: scroll,
+            behavior: "smooth",
+          });
+        }
+        
+      })
+    })
+
+    if (location.hash) {
+      const elem = document.getElementById(location.hash.slice(1));
+      const scroll = getOffsetTop(elem)  - 150;
+      
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 1);
+      setTimeout(() => {
+        window.scrollTo({
           top: scroll,
           behavior: "smooth",
         });
-      })
-    })
+      }, 50);
+    }
 
     function getOffsetTop(element) {
       let offsetTop = 0;
@@ -434,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = e.detail.target;
     const formName = form.getAttribute("data-si-form");
     const succesModal = document.querySelector('.modal__success');
-    if (formName === "engineerBig" || formName === "engineer") {
+    if (formName === "engineerBig" || formName === "engineer" || formName === 'aluminium') {
       succesModal.classList.add("active");
     }
   });

@@ -1,0 +1,47 @@
+.aluminium-acoustics {
+  position: relative;
+  &::before {
+    @include fon($gr-pink, 888px, 488px);
+    top: -120px;
+    right: 0;
+    @include laptop {
+      top: 80px;
+      right: -500px;
+    }
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 534px 1fr;
+    gap: 20px;
+    align-items: center;
+    @include laptop {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__img {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    height: 321px;
+    @include laptop {
+      height: 300px;
+    }
+    @include phone {
+      height: 220px;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
+  }
+  & h2 {
+    margin-bottom: 30px;
+    @include phone {
+      word-break: break-all;
+    }
+  }
+}

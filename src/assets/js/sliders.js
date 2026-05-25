@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let advantagesProfilesSlider = null;
   let provedalSlider = null;
   let balconiesInfoSlider = null;
+  let aluminiumWhereSlider = null;
+  let aluminiumAll = null;
+  let aluminiumInfoSlider = null;
   window.addEventListener("resize", () => {
     clearTimeout(window.resizeTimer);
     window.resizeTimer = setTimeout(initMobileSliders, 250);
@@ -16,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initAdvantagesProfilesSlider();
     initProvedalSlider();
     initBalconiesInfoSlider();
+    initAluminiumWhereSlider();
+    initAluminiumInfoSlider();
+    initAluminiumAllSlider();
   }
 
   initMobileSliders();
@@ -113,6 +119,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function initAluminiumWhereSlider() {
+    if (aluminiumWhereSlider && !(window.innerWidth < 768)) {
+      aluminiumWhereSlider.destroy(true, true);
+      aluminiumWhereSlider = null;
+    }
+    if (window.innerWidth < 768 && !aluminiumWhereSlider) {
+      aluminiumWhereSlider = new Swiper(".aluminium-where__slider-swiper", {
+        spaceBetween: 15,
+        slidesPerView: 1.41,
+        pagination: {
+          el: ".aluminium-where__slider .swiper-pagination",
+          type: "bullets",
+          dynamicBullets: true,
+        },
+      });
+    }
+  }
+
+  function initAluminiumInfoSlider() {
+    if (aluminiumInfoSlider && !(window.innerWidth < 768)) {
+      aluminiumInfoSlider.destroy(true, true);
+      aluminiumInfoSlider = null;
+    }
+    if (window.innerWidth < 768 && !aluminiumInfoSlider) {
+      aluminiumInfoSlider = new Swiper(".aluminium-info__slider-swiper", {
+        spaceBetween: 15,
+        slidesPerView: 1.15,
+        pagination: {
+          el: ".aluminium-info__slider .swiper-pagination",
+          type: "bullets",
+          dynamicBullets: true,
+        },
+      });
+    }
+  }
+
+  function initAluminiumAllSlider() {
+    if (aluminiumAll && !(window.innerWidth < 768)) {
+      aluminiumAll.destroy(true, true);
+      aluminiumAll = null;
+    }
+    if (window.innerWidth < 768 && !aluminiumAll) {
+      aluminiumAll = new Swiper(".aluminium-all__slider-swiper", {
+        spaceBetween: 10,
+        slidesPerView: 1.15,
+        pagination: {
+          el: ".aluminium-all__slider .swiper-pagination",
+          type: "bullets",
+          dynamicBullets: true,
+        },
+      });
+    }
+  }
+
 
   const sliderPortal = new Swiper(".paket-slider__slider .paket-slider__slider-swiper", {
     spaceBetween: 20,
@@ -173,21 +233,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-  const sliderHandles = new Swiper(".handles__content-slider .handles__content-slider-swiper", {
-      spaceBetween: 0,
-      slidesPerView: 1,
-      navigation: {
-        nextEl: ".handles__content-slider .slider-nav--next",
-        prevEl: ".handles__content-slider .slider-nav--prev",
-      },
-      pagination: {
-        el: ".handles__content-slider .swiper-pagination",
-        type: "bullets",
-        dynamicBullets: true,
-        clickable: true,
-      },
-    },
-  );
+  function sliderHandles() {
+    const allSliderHandles = document.querySelectorAll('.handles__content-slider');
+    allSliderHandles.forEach((slider, i) => {
+      slider.classList.add(`handles__content-slider--${i}`);
+      const sliderHandles = new Swiper(slider.querySelector(".handles__content-slider-swiper"), {
+          spaceBetween: 0,
+          slidesPerView: 1,
+          navigation: {
+            nextEl: `.handles__content-slider--${i} .slider-nav--next`,
+            prevEl: `.handles__content-slider--${i} .slider-nav--prev`,
+          },
+          pagination: {
+            el: `.handles__content-slider--${i} .swiper-pagination`,
+            type: "bullets",
+            dynamicBullets: true,
+            clickable: true,
+          },
+        },
+      );
+    });
+  }
+  sliderHandles();
 
   const designOknaSlider = new Swiper(".design-okna__item-swiper", {
     spaceBetween: 16,

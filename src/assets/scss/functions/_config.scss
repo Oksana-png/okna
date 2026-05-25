@@ -11,6 +11,7 @@
 
 html {
   overflow: auto;
+  overflow-x: hidden;
   font-family: "Scada", sans-serif;
 }
 
@@ -23,8 +24,8 @@ body {
   color: $c-black;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   background-color: $c-bg;
+  overflow: clip;
 }
 
 img {

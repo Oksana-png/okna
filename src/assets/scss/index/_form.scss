@@ -146,6 +146,154 @@
       }
     }
   }
+  &-aluminium {
+    &__fon {
+      padding: 20px;
+      background: $gr;
+      border-radius: 40px;
+      display: grid;
+      grid-template-columns: 1fr 506px;
+      gap: 20px;
+      @include desktop {
+        grid-template-columns: 1fr;
+      }
+      @include tablet768 {
+        padding: 20px;
+        margin: 0 -15px;
+        border-radius: 0;
+      }
+    }
+    &__info {
+      padding: 40px;
+      background-color: $c-white;
+      border-radius: 20px;
+      @include tablet768 {
+        padding: 30px 20px;
+      }
+      & h2 {
+        margin-bottom: 40px;
+        @include tablet768 {
+          text-align: center;
+        }
+      }
+    }
+    &__numbers {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+      @include tablet768 {
+        grid-template-columns: 1fr;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $gr;
+      }
+      &-item {
+        position: relative;
+        height: 100%;
+        @include tablet768 {
+          display: grid;
+          grid-template-columns: 54px 1fr;
+          gap: 8px 12px;
+        }
+        &:nth-child(2) {
+          & strong {
+            background: $gr-lil;
+            background-clip: text;
+          }
+        }
+        &:nth-child(3) {
+          & strong {
+            background: $gr-pink;
+            background-clip: text;
+          }
+        }
+        &:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          right: -20px;
+          width: 2px;
+          height: 100%;
+          background: $gr;
+          @include tablet768 {
+            width: 100%;
+            height: 2px;
+            right: 0;
+            bottom: -20px;
+            top: auto;
+          }
+        }
+        & strong {
+          font-size: 52px;
+          line-height: 1.1;
+          margin-bottom: 8px;
+          color: transparent;
+          background: $gr-blue;
+          background-clip: text;
+          @include laptop {
+            font-size: 48px;
+          }
+          @include tablet768 {
+            grid-row: 1/3;
+            margin-bottom: 0;
+          }
+        }
+        & h3 {
+          margin-bottom: 8px;
+          @include tablet768 {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &__content {
+      & h3 {
+        margin-bottom: 8px;
+      }
+    }
+    &__form {
+      padding: 40px;
+      @include glass;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include tablet768 {
+        padding: 30px 20px;
+      }
+      &-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        @include phone {
+          grid-template-columns: 1fr;
+        }
+      }
+      & h2 {
+        color: $c-accent;
+        margin-bottom: 20px;
+      }
+      &>p {
+        margin-bottom: 40px;
+      }
+      & .policy {
+        margin: 20px 0;
+      }
+      &>.btn {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .input {

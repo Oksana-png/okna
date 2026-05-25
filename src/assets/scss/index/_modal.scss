@@ -63,6 +63,7 @@
 
 
   &__variants, &__variants2 {
+    align-items: flex-start;
     &.active {
       @include desktop {
         align-items: flex-start;

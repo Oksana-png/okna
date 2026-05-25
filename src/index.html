@@ -236,18 +236,19 @@
     </div>
     <nav class="hero-nav">
       <div class="wrapper">
-        <ul class="hero-nav__ul">
-          <li><a href="#">Пакеты</a></li>
-          <li><a href="#">Стеклопакеты</a></li>
-          <li><a href="#">Дизайн</a></li>
-          <li><a href="#">Балконы</a></li>
-          <li><a href="#">Порталы</a></li>
-          <li><a href="#">Алюминиевое остекление</a></li>
-          
-        </ul>
-        <ul class="hero-nav__ul">
-          <li><a href="#">О нас</a></li>
-        </ul>
+        <div class="hero-nav__wrapper">
+          <ul class="hero-nav__ul">
+            <li><a class="scroll-link" href="#s-packet">Пакеты</a></li>
+            <li><a class="scroll-link" href="#glasspacket-tabs">Стеклопакеты</a></li>
+            <li><a class="scroll-link" href="#des">Дизайн</a></li>
+            <li><a class="scroll-link" href="#">Балконы</a></li>
+            <li><a class="scroll-link" href="#">Порталы</a></li>
+            <li><a class="scroll-link" href="#">Алюминиевое остекление</a></li>
+          </ul>
+          <ul class="hero-nav__ul">
+            <li><a class="scroll-link" href="#">О нас</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -342,7 +343,7 @@
       </div>
     </section>
 
-    <section class="glasspacket-tabs section-margin">
+    <section id="glasspacket-tabs" class="glasspacket-tabs section-margin">
       <img src="assets/img/design/line-glasspakets.svg" alt="line design">
       <div class="wrapper">
         <div class="title">
@@ -1668,7 +1669,7 @@
       </div>
     </section>
 
-    <section class="paket-slider section-margin">
+    <section id="s-packet" class="paket-slider section-margin">
       <div class="wrapper">
         <div class="title">
           <h2>Пакеты — удобные комплексные решения</h2>
@@ -4684,6 +4685,287 @@
               </button>
             </div>
             <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="form-aluminium section-margin">
+      <div class="wrapper">
+        <div class="form-aluminium__fon">
+          <div class="form-aluminium__info">
+            <h2>zaSteklom — полный цикл работ</h2>
+            <div class="form-aluminium__numbers">
+              <div class="form-aluminium__numbers-item">
+                <strong>01</strong>
+                <h3>Производство</h3>
+                <p>Высокоточная сборка и контроль качества на каждом этапе</p>
+              </div>
+              <div class="form-aluminium__numbers-item">
+                <strong>02</strong>
+                <h3>Монтаж</h3>
+                <p>Профильные мастера знают тонкости установки и решают нестандартные задачи</p>
+              </div>
+              <div class="form-aluminium__numbers-item">
+                <strong>03</strong>
+                <h3>Сервис и гарантия</h3>
+                <p>Гарантийное обслуживание и пост‑сервис по регламенту</p>
+              </div>
+            </div>
+            <div class="form-aluminium__content content">
+              <h3>Прозрачные условия</h3>
+              <ul>
+                <li>Не завышаем цены. Расчет выполняется заранее — вы планируете бюджет</li>
+                <li>Возможна рассрочка</li>
+                <li>Работаем с крупными организациями и частными лицами</li>
+              </ul>
+            </div>
+          </div>
+          <form class="form-aluminium__form">
+            <h2>Получите план и ориентировочную стоимость</h2>
+            <p>Оставьте заявку — свяжемся для уточнения параметров. Инженер оперативно приедет, определит особенности конструкции и согласует решения на месте</p>
+            <div class="form-aluminium__form-wrap">
+              <input class="input" type="text" placeholder="Ваше имя">
+              <input class="input" type="tel" placeholder="+7 (___) ___-__-__*" data-phone-pattern>
+            </div>
+            <div class="policy">
+              <input type="checkbox" id="policy-b" name="policy" />
+              <label for="policy-b" class="policy__label">
+                <div class="policy__checkbox">
+                  <svg class="icon">
+                    <use xlink:href="assets/img/icons/sprite/sprite.svg#check"></use>
+                  </svg>
+                </div>
+                <p>Я согласен на обработку персональных данных в соотвествии c <a href="/">Политикой конфиденциальности</a></p>
+                <span class="error-text" data-si-error="policy">Заполните</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Записаться на замер</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section class="aluminium-where">
+      <div class="wrapper">
+        <h2 class="title">Где применяется алюминиевое остекление</h2>
+        <div class="aluminium-where__slider">
+          <div class="aluminium-where__slider-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide aluminium-where__item">
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3>Балконы и лоджии (холодные и теплые решения)</h3>
+              </div>
+              <div class="swiper-slide aluminium-where__item">
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3>Балконы и лоджии (холодные и теплые решения)</h3>
+              </div>
+              <div class="swiper-slide aluminium-where__item">
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3>Витрины и торговые павильоны</h3>
+              </div>
+              <div class="swiper-slide aluminium-where__item">
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3>Балконы и лоджии (холодные и теплые решения)</h3>
+              </div>
+              <div class="swiper-slide aluminium-where__item">
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3>Перегородки и раздвижные системы в интерьере</h3>
+              </div>
+              <div class="swiper-slide aluminium-where__item">
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3>Входные группы и тамбуры</h3>
+              </div>
+            </div>
+          </div>
+          <div class="slider-nav">
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="aluminium-acoustics section-margin">
+      <div class="wrapper">
+        <div class="aluminium-acoustics__wrapper">
+          <div class="aluminium-acoustics__text content">
+            <h2>Энергоэффективность и акустика</h2>
+            <ul>
+              <li>Теплые алюминиевые системы с терморазрывом и мультифункциональными стеклопакетами уменьшают теплопотери и расходы на отопление</li>
+              <li>Герметичность контура, качественная фурнитура и акустические пакеты снижают уличный шум до комфортного уровня</li>
+              <li>Рекомендуем комплексный подход: теплый профиль + правильные стеклопакеты + утепление откосов и примыканий</li>
+            </ul>
+          </div>
+          <div class="aluminium-acoustics__img">
+            <img src="assets/image/fon/hero.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="aluminium-info section-margin">
+      <div class="wrapper">
+        <div  class="title">
+          <h2>Почему алюминий</h2>
+          <h3>Комплектация под ваши сценарии эксплуатации</h3>
+        </div>
+        <div class="aluminium-info__slider aluminium-info__slider--22">
+          <div class="aluminium-info__slider-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide aluminium-info__item content">
+                <h3>Долговечность</h3>
+                <p>Ресурс профиля — десятилетия эксплуатации при минимальном уходе</p>
+              </div>
+              <div class="swiper-slide aluminium-info__item content">
+                <h3>Взломостойкость</h3>
+                <p>Жесткие рамы и фурнитура повышенной надежности усложняют несанкционированный доступ.</p>
+              </div>
+              <div class="swiper-slide aluminium-info__item content">
+                <h3>Свобода формы</h3>
+                <p>Ресурс профиля — десятилетия эксплуатации при минимальном уходе</p>
+              </div>
+              <div class="swiper-slide aluminium-info__item content">
+                <h3>Экологичность</h3>
+                <p>Материал не выделяет вредных веществ и пригоден для переработки</p>
+              </div>
+              <div class="swiper-slide aluminium-info__item content">
+                <h3>Долговечность</h3>
+                <p>Ресурс профиля — десятилетия эксплуатации при минимальном уходе</p>
+              </div>
+            </div>
+          </div>
+          <div class="slider-nav">
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="aluminium-all section-margin">
+      <div class="wrapper">
+        <div class="aluminium-all__slider">
+          <div class="aluminium-all__slider-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide aluminium-all__item">
+                <a href="#"></a>
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3 class="aluminium-all__item-title">
+                  Фасады
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="assets/img/icons/sprite/sprite.svg#arrow-next"></use>
+                    </svg>
+                  </span>
+                </h3>
+              </div>
+              <div class="swiper-slide aluminium-all__item">
+                <a href="#"></a>
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3 class="aluminium-all__item-title">
+                  Фасады
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="assets/img/icons/sprite/sprite.svg#arrow-next"></use>
+                    </svg>
+                  </span>
+                </h3>
+              </div>
+              <div class="swiper-slide aluminium-all__item">
+                <a href="#"></a>
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3 class="aluminium-all__item-title">
+                  Фасады
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="assets/img/icons/sprite/sprite.svg#arrow-next"></use>
+                    </svg>
+                  </span>
+                </h3>
+              </div>
+              <div class="swiper-slide aluminium-all__item">
+                <a href="#"></a>
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3 class="aluminium-all__item-title">
+                  Фасады
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="assets/img/icons/sprite/sprite.svg#arrow-next"></use>
+                    </svg>
+                  </span>
+                </h3>
+              </div>
+              <div class="swiper-slide aluminium-all__item">
+                <a href="#"></a>
+                <img src="assets/image/fon/hero.png" alt="">
+                <h3 class="aluminium-all__item-title">
+                  Фасады
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="assets/img/icons/sprite/sprite.svg#arrow-next"></use>
+                    </svg>
+                  </span>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="slider-nav">
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="type-glazing type-glazing--door section-margin">
+      <div class="wrapper">
+        <h2 class="title">Типы остекления</h2>
+        <div class="type-glazing__wrapper">
+          <div class="type-glazing__item-door">
+            <h3>Распашные двери</h3>
+            <div class="type-glazing__item-door-content">
+              <p>Двери работают по маятниковому принципу: створки поворачиваются вокруг оси в обе стороны. Вектор открывания определяется двусторонними датчиками, которые фиксируют движение, автоматического возврата добиваются пружинными доводчиками. Облегчённая алюминиевая рама снижает нагрузку на механизмы, что заметно продлевает их ресурс. Обычно маятниковые системы выполняют на «холодном» профиле и рекомендуют для объектов со средней интенсивностью прохода</p>
+              <button class="btn btn-border btn-border--white"><span>Заказать расчет</span></button>
+            </div>
+            <div class="type-glazing__item-door-content2 content">
+              <p><strong>Доступные исполнения</strong></p>
+              <ul>
+                <li>«Холодный» профиль — для неотапливаемых или слабо контролируемых по температуре зон</li>
+                <li>«Теплый» профиль с терморазрывом — для зданий с требованиями по энергосбережению</li>
+              </ul>
+              <p><strong>Особенности</strong></p>
+              <ul>
+                <li>Подбор фурнитуры (петли, доводчики, замки, антипаника) по интенсивности использования</li>
+                <li>Усиленные стойки для увеличенных габаритов</li>
+                <li>Возможность остекления энергосберегающими пакетами и ударопрочным стеклом</li>
+              </ul>
+            </div>
+            <div class="type-glazing__item-door-img">
+              <img src="assets/image/fon/roto_axer.png" alt="">
+            </div>
+            <button class="btn btn-border btn-border--white"><span>Заказать расчет</span></button>
+          </div>
+          <div class="type-glazing__item-door">
+            <h3>Распашные двери</h3>
+            <div class="type-glazing__item-door-content">
+              <p>Двери работают по маятниковому принципу: створки поворачиваются вокруг оси в обе стороны. Вектор открывания определяется двусторонними датчиками, которые фиксируют движение, автоматического возврата добиваются пружинными доводчиками. Облегчённая алюминиевая рама снижает нагрузку на механизмы, что заметно продлевает их ресурс. Обычно маятниковые системы выполняют на «холодном» профиле и рекомендуют для объектов со средней интенсивностью прохода</p>
+              <button class="btn btn-border btn-border--white"><span>Заказать расчет</span></button>
+            </div>
+            <div class="type-glazing__item-door-content2 content">
+              <p><strong>Доступные исполнения</strong></p>
+              <ul>
+                <li>«Холодный» профиль — для неотапливаемых или слабо контролируемых по температуре зон</li>
+                <li>«Теплый» профиль с терморазрывом — для зданий с требованиями по энергосбережению</li>
+              </ul>
+              <p><strong>Особенности</strong></p>
+              <ul>
+                <li>Подбор фурнитуры (петли, доводчики, замки, антипаника) по интенсивности использования</li>
+                <li>Усиленные стойки для увеличенных габаритов</li>
+                <li>Возможность остекления энергосберегающими пакетами и ударопрочным стеклом</li>
+              </ul>
+            </div>
+            <div class="type-glazing__item-door-img">
+              <img src="assets/image/fon/roto_axer.png" alt="">
+            </div>
+            <button class="btn btn-border btn-border--white"><span>Заказать расчет</span></button>
           </div>
         </div>
       </div>

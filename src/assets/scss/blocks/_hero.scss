@@ -229,6 +229,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include laptop {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  @include desktop {
+    & p {
+      text-align: center;
+    }
   }
 }
 
@@ -565,6 +574,273 @@
       &>strong {
         color: $c-accent;
         font-size: 16px;
+      }
+    }
+  }
+}
+
+.hero-aluminium {
+  position: relative;
+  padding: 30px 0;
+  &::before {
+    @include fon(linear-gradient(181deg, $c-green 0%, $c-lil 25%, #e1a0ff 50.48%, $c-orange 75%, $c-yellow 100%), 320px, 681px);
+    top: -100px;
+    right: 200px;
+    transform: rotate(-52deg);
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    bottom: -11px;
+    width: 100%;
+    background-image: url('../img/design/line.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  &__title {
+    @include desktop {
+      grid-column: 1/3;
+    }
+    @include tablet768 {
+      grid-column: auto;
+    }
+
+    & .breadcrumbs {
+      @include laptop {
+        margin-bottom: 20px;
+      }
+      @include tablet768 {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    @include phone {
+      justify-content: center;
+    }
+    & span {
+      font-size: 14px;
+      line-height: 1.1;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background-color: $c-lil;
+      &:nth-child(2) {
+        background-color: $c-pink;
+      }
+      &:nth-child(3) {
+        background-color: $c-orange;
+      }
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0 30px;
+    @include desktop {
+      align-items: flex-start;
+      gap: 20px 30px;
+    }
+    @include tablet768 {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  &__info {
+    position: relative;
+    padding-bottom: 111px;
+    margin-top: 20px;
+    grid-column: 1/2;
+    @include desktop {
+      margin-top: 0;
+    }
+    @include tablet768 {
+      padding-bottom: 30px;
+    }
+    &>h3 {
+      color: $c-black;
+    }
+    &>p {
+      margin-bottom: 40px;
+      font-size: 16px;
+      @include laptop {
+        margin-bottom: 30px;
+      }
+      @include phone {
+        text-align: center;
+      }
+    }
+    &-btns {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+      @include laptop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      @include phone {
+        & .btn {
+          justify-content: center;
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+    & h3 {
+      color: $c-black;
+      margin-bottom: 20px;
+      margin-top: 8px;
+      @include laptop {
+        margin-top: 0;
+        margin-bottom: 30px;
+      }
+      @include tablet768 {
+        text-align: center;
+        margin-top: 0;
+      }
+    }
+  }
+  &__image {
+    @include glass;
+    padding: 20px;
+    grid-row: 1/3;
+    grid-column: 2/3;
+    font-size: 0;
+    @include desktop {
+      grid-row: 2/3;
+    }
+    @include tablet768 {
+      display: none;
+    }
+    & picture {
+      overflow: hidden;
+      border-radius: 20px;
+      @include laptop {
+        height: 261px;
+      }
+    }
+  }
+
+  & h1 {
+    @include phone {
+      text-align: center;
+    }
+  }
+
+  &-review {
+    position: absolute;
+    z-index: 1;
+    width: 747px;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: 170px 1fr 1fr 1fr;
+    align-items: center;
+    background-color: $c-white;
+    border-radius: 20px;
+    @include laptop {
+      width: 585px;
+      grid-template-columns: 170px 1fr 1fr 1fr;
+    }
+    @include tablet768 {
+      position: relative;
+      padding: 20px;
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 74px 62px;
+      gap: 24px;
+    }
+    &__block {
+      min-width: 170px;
+      padding-right: 20px;
+      border-right: 1px solid $c-bg;
+      @include tablet768 {
+        position: relative;
+        padding: 0;
+        min-width: 162px;
+        width: 100%;
+        height: 100%;
+        border: none;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -13px;
+          height: 100%;
+          width: 1px;
+          background-color: $c-bg;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -13px;
+          height: 1px;
+          width: 100%;
+          background-color: $c-bg;
+        }
+      }
+      & iframe {
+        @include tablet768 {
+          margin: 0 auto;
+        }
+      }
+      & p {
+        font-size: 12px;
+        font-family: "Inter", sans-serif;
+        @include tablet768 {
+          text-align: center;
+        }
+      }
+    }
+    &>p {
+      text-align: center;
+      padding: 0 20px;
+      border-right: 1px solid $c-bg;
+      @include tablet768 {
+        padding: 0;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &:last-of-type {
+        position: relative;
+        padding-right: 0;
+        border-right: none;
+        @include tablet768 {
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -13px;
+            height: 100%;
+            width: 1px;
+            background-color: $c-bg;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -13px;
+            height: 1px;
+            width: 100%;
+            background-color: $c-bg;
+          }
+        }
       }
     }
   }

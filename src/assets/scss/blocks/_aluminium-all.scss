@@ -1,0 +1,102 @@
+.aluminium-all {
+  &__slider {
+    & .swiper-wrapper {
+      @include glass;
+      padding: 20px;
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      @include laptop {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include tablet768 {
+        padding: 0;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        display: flex;
+        gap: 0;
+      }
+    }
+  }
+  &__item {
+    position: relative;
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    grid-column: span 2;
+    background-color: $c-white;
+    transition: all .3s ease;
+    @include laptop {
+      grid-column: auto;
+    }
+    @include hover {
+      &:hover {
+        border-color: $c-accent;
+        box-shadow: 0 4px 9px 0 rgba(50, 69, 166, 0.15), 0 16px 16px 0 rgba(50, 69, 166, 0.13), 0 37px 22px 0 rgba(50, 69, 166, 0.08), 0 66px 26px 0 rgba(50, 69, 166, 0.02), 0 103px 29px 0 rgba(50, 69, 166, 0);
+        & span {
+          background-color: $c-accent;
+          & .icon {
+            stroke: $c-white;
+          }
+        }
+      }
+    }
+    &:nth-child(4), &:nth-child(5) {
+      grid-column: span 3;
+      @include laptop {
+        grid-column: auto;
+      }
+    }
+    &:nth-child(odd):last-child {
+      @include laptop {
+        grid-column: span 2;
+      }
+    }
+    &-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      @include laptop {
+        align-items: center;
+      }
+      & span {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: transparent;
+        transition: background-color .3s ease;
+      }
+    }
+    &>a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      &::after {
+        display: none;
+      }
+    }
+    & img {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      font-size: 0;
+      margin-bottom: 8px;
+      @include tablet768 {
+        height: 196px;
+      }
+    }
+  }
+  & .slider-nav {
+    display: none;
+    @include tablet768 {
+      display: flex;
+    }
+  }
+}

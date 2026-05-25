@@ -1,0 +1,103 @@
+.aluminium-info {
+  position: relative;
+  &::before {
+    @include fon($gr-blue, 410px, 580px);
+    transform: rotate(-40deg);
+    left: 60%;
+    @include laptop {
+      left: auto;
+      right: -100px;
+    }
+    @include tablet768 {
+      display: none;
+    }
+  }
+  &__slider {
+    @include glass;
+    padding: 20px;
+    border-radius: 40px;
+    @include tablet768 {
+      padding: 0;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    &.aluminium-info__slider--32 {
+      & .swiper-wrapper {
+        grid-template-columns: repeat(6, 1fr);
+        @include desktop {
+          grid-template-columns: 1fr 1fr;
+        }
+        & .swiper-slide {
+          grid-column: span 2;
+          @include desktop {
+            grid-column: auto;
+          }
+          &:nth-child(4):nth-last-child(2) {
+            grid-column: span 3;
+            @include desktop {
+              grid-column: auto;
+            }
+          }
+          &:nth-child(5):last-child {
+            grid-column: span 3;
+            @include desktop {
+              grid-column: auto;
+            }
+          }
+          &:nth-child(odd):last-child {
+            @include desktop {
+              grid-column: span 2;
+            }
+          }
+        }
+      }
+    }
+    &.aluminium-info__slider--33 {
+      & .swiper-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        @include desktop {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+    &.aluminium-info__slider--22 {
+      & .swiper-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  &__item {
+    padding: 20px;
+    background-color: $c-white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+  }
+  & .title {
+    & > h3 {
+      color: $c-black;
+      margin-top: 20px;
+    }
+  }
+  & .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include tablet768 {
+      display: flex !important;
+      gap: 0 !important;
+    }
+  }
+  & .slider-nav {
+    display: none;
+    @include tablet768 {
+      display: flex;
+    }
+  }
+}
